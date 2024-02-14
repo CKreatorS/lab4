@@ -1,7 +1,9 @@
-from flask import Flask
+from flask import Flask, render_template
 import random 
 
 app = Flask(__name__)
+
+IMG_DIR = './static'
 
 @app.route('/combat')
 def dice_roll() -> str:
@@ -71,6 +73,11 @@ def dis_endpoint() -> str:
             return 'critical hit!'
         else:
             return 'you roll for ' + str(dice_one) + ' damage!'
+
+@app.route('/image')
+def serve_image():
+    "a simple HTTP image"
+    return render_template('image.html')
 
 if __name__ == '__main__':
     app.run(host='localhost', port=8081)

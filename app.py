@@ -1,11 +1,12 @@
 from flask import Flask, render_template
 import random 
+from route import bp
 
 app = Flask(__name__)
 
 IMG_DIR = './static'
 
-@app.route('/combat')
+@bp.route('/combat')
 def dice_roll() -> str:
     numbers = random.randint(1, 20)
 
@@ -16,7 +17,7 @@ def dice_roll() -> str:
     else:
         return 'you roll for ' + str(numbers) + ' damage!'
     
-@app.route('/advantage')
+@bp.route('/advantage')
 def adv_endpoint() -> str:
     dice_one = random.randint(1, 20)
     dice_two = random.randint(1, 20)
@@ -45,7 +46,7 @@ def adv_endpoint() -> str:
         else:
             return 'you roll for ' + str(dice_one) + ' damage!'
 
-@app.route('/disadvantage')
+@bp.route('/disadvantage')
 def dis_endpoint() -> str:
     dice_one = random.randint(1, 20)
     dice_two = random.randint(1, 20)
@@ -74,7 +75,7 @@ def dis_endpoint() -> str:
         else:
             return 'you roll for ' + str(dice_one) + ' damage!'
 
-@app.route('/image')
+@bp.route('/image')
 def serve_image():
     "a simple HTTP image"
     return render_template('image.html')

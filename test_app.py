@@ -4,7 +4,6 @@ from app import create_app
 from route import bp
 from flask import Flask
 
-
 @pytest.fixture
 
 def client():

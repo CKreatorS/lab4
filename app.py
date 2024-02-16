@@ -1,9 +1,11 @@
 from flask import Flask, render_template
 from route import bp
 
+# function defines an app within flask
 def create_app():
     app = Flask(__name__)
 
+# registers app 
     app.register_blueprint(bp)
     return app
 

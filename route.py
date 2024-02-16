@@ -1,5 +1,4 @@
-from flask import Flask, Blueprint, render_template
-
+from flask import Blueprint, render_template
 
 bp = Blueprint('test_combat', __name__)
 
